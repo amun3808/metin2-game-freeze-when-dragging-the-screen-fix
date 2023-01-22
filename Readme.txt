@@ -4,4 +4,4 @@ We'll open a thread and call "Process()" from there when we receive WM_ENTERSIZE
 
 There's also the option of creating a timer when entering WM_ENTERSIZEMOVE, calling "Process()" when receiving WM_TIMER and killing it when receiving WM_EXITSIZEMOVE, but there's quite a big delay till the timer starts and it's also not very reliable, so..
 
-Note: This is HIGHLY experimental, since multithreading PythonApplication might result in data races and crash the client. I tried testing in as good as I could, but note that it's quite a big possibility for that to happen when you least expect it.
+Note: This is HIGHLY experimental, since multithreading PythonApplication might result in data races and crash the client. I tried testing it as good as I could, but note that it's quite a big possibility for that to happen when you least expect it.
