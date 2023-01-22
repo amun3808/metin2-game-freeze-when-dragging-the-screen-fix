@@ -1,3 +1,24 @@
+// find
+CPythonApplication::CPythonApplication() :
+	m_bCursorVisible(TRUE),
+	m_bLiarCursorOn(false),
+	m_iCursorMode(CURSOR_MODE_HARDWARE),
+	m_isWindowed(false),
+	m_isFrameSkipDisable(false),
+	m_poMouseHandler(NULL),
+	m_dwUpdateFPS(0),
+	m_dwRenderFPS(0),
+	m_fAveRenderTime(0.0f),
+	m_dwFaceCount(0),
+	m_fGlobalTime(0.0f),
+	m_fGlobalElapsedTime(0.0f),
+	m_dwLButtonDownTime(0),
+	m_dwLastIdleTime(0),// don't forget the comma here
+//add
+	m_future_should_continue_processing(false),
+	m_future_acknowledged_stop_request(true)
+
+
 //find
 
 void CPythonApplication::Loop()
@@ -51,12 +72,6 @@ void CPythonApplication::EndFutureLoop()
 
 void CPythonApplication::Loop()
 {
-	m_future_acknowledged_stop_request = true;
-	m_future_should_continue_processing = false;
-#ifdef PROFILING
-	Profiler::Instance().beginSession("session1");
-#endif
-
 	while (1)
 	{
 		if (IsMessage())
@@ -75,7 +90,4 @@ void CPythonApplication::Loop()
 			m_dwLastIdleTime = ELTimer_GetMSec();
 		}
 	}
-#ifdef PROFILING
-	Profiler::Instance().endSession();
-#endif
 }
