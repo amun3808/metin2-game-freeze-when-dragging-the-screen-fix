@@ -8,3 +8,6 @@ Note: This is HIGHLY experimental, since multithreading PythonApplication might 
 
 
 Testing it since 22/01/2023
+
+
+UPDATE: The previous version should be discarded, we're going to handle the move ourselves.
