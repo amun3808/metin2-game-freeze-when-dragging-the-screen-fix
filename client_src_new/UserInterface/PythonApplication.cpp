@@ -32,14 +32,14 @@ void CPythonApplication::UpdateMainWindowPosition()
 	POINT finalPoint{};
 	if (GetCursorPos(&finalPoint))
 	{
-		LONG xDiff = finalPoint.x - initialMousePoint.x;
-		LONG yDiff = finalPoint.y - initialMousePoint.y;
+		LONG xDiff = finalPoint.x - m_InitialMouseMovingPoint.x;
+		LONG yDiff = finalPoint.y - m_InitialMouseMovingPoint.y;
 
 		RECT r{};
 		GetWindowRect(&r);
 
 		SetPosition(r.left + xDiff, r.top + yDiff);
-		initialMousePoint = finalPoint;
+		m_InitialMouseMovingPoint = finalPoint;
 	}
 }
 
