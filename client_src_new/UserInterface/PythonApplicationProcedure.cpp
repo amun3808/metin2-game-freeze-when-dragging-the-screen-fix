@@ -9,6 +9,15 @@ case WM_EXITSIZEMOVE:
 	{
 		switch (wParam)
 		{
+		case HTMAXBUTTON:
+		case HTSYSMENU:
+			return 0;
+		case HTMINBUTTON:
+			ShowWindow(hWnd, SW_MINIMIZE);
+			return 0;
+		case HTCLOSE:
+			RunPressExitKey();
+			return 0;
 		case HTCAPTION:
 			if (!IsUserMovingMainWindow())
 				SetUserMovingMainWindow(true);
